@@ -1,0 +1,30 @@
+nav {
+  height: 120px;
+  width: 100%; /* Check if this is full width of the viewport */
+  background-color: #4056A1;
+  color: #FFFFFF;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+nav>span {
+  padding-top: 2em;
+  padding-bottom: 1em;
+  font-family: "Bungee", sans-serif;
+}
+
+#rightNav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+
+}
+
+.fa-solid.fa-angles-down {
+  color: crimson;
+}
