@@ -1,0 +1,43 @@
+.tweet {
+  display: flex;
+  flex-direction: column;
+  padding: 2.5%;
+  border: solid;
+}
+
+
+article.tweet p {
+  padding: 10px;
+}
+
+#left-tweet-header {
+  display: flex;
+  align-items: center;
+}
+
+article.tweet header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+article.tweet header img {
+  height: 50px;;
+}
+
+article.tweet footer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  border-top: solid;
+}
+
+.tweet:hover {
+  box-shadow: 10px 5px 5px rgb(121, 112, 112);
+}
+
+.fa-solid:hover {
+  color: rgba(255, 208, 0, 0.719)
+
+}
