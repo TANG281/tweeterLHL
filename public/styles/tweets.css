@@ -10,6 +10,10 @@ article.tweet p {
   padding: 10px;
 }
 
+article.tweet header #handle {
+  color: rgba(194, 190, 190, 0.555);
+}
+
 #left-tweet-header {
   display: flex;
   align-items: center;
@@ -34,7 +38,7 @@ article.tweet footer {
 }
 
 .tweet:hover {
-  box-shadow: 10px 5px 5px rgb(121, 112, 112);
+  box-shadow: 10px 5px rgba(172, 166, 166, 0.527);
 }
 
 .fa-solid:hover {
