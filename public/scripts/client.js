@@ -38,6 +38,30 @@ const renderTweets = (data) => {
   });
 };
 
+// const getTweetData = () => {
+//   $.ajax({
+//     url: '/tweets',
+//     type: 'GET',
+//     dataType: 'json',
+//     success: (result) => {
+//       console.log(result);
+//       renderTweets(result);
+//     },
+//     error: (error) => {
+//       console.error('An error occured, ', error);
+//     }
+//   });
+// };
+
+const postTweetData = () => {
+  const tweetData = $('#tweet-form').serialize();
+  console.log("Printing: ", tweetData);
+  $.post("/tweets", tweetData)
+};
+
+
+
+
 const data = [
   {
     "user": {
@@ -65,6 +89,19 @@ const data = [
 ];
 
 $(document).ready(function() {
+  $("#tweet-form").on("submit", (event) => {
+    event.preventDefault();
+    alert("We submitted the form");
+    postTweetData()
+  });
+
+
   renderTweets(data);
+  getTweetData();
+
 
 });
+
+// $('#tweet-form').submit(function(e){
+//   e.preventDefault();
+// });
