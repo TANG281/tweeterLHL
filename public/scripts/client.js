@@ -4,6 +4,11 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
 
 const createTweetElement = (data) => {
   let $tweet = `
@@ -15,9 +20,9 @@ const createTweetElement = (data) => {
   </div>
   <div id="handle"><b>${data.user.handle}</b></div>
   </header>
-  <p><b>${data.content.text}</b></p>
+  <p><b>${escape(data.content.text)}</b></p>
       <footer>
-      <div>${data.created_at}</div>
+      <div>${timeago.format(data.created_at)}</div>
       <div>
       <i class="fa-solid fa-flag"></i>
       <i class="fa-solid fa-retweet"></i>
@@ -31,6 +36,7 @@ const createTweetElement = (data) => {
 };
 
 const renderTweets = (data) => {
+  $("#tweets-container").empty();
   data.forEach((tweetData) => {
     const newTweet = createTweetElement(tweetData);
     console.log(newTweet);
@@ -38,32 +44,45 @@ const renderTweets = (data) => {
   });
 };
 
+const loadTweets = () => {
+  $.ajax({
+    url: '/tweets',
+    type: 'GET',
+    datatype: 'json',
+    success: (result) => {
+      renderTweets(result);
+    },
+    error: (error) => {
+      console.error('An error occured, ', error);
+    }
+  });
+};
+
 const postTweetData = () => {
   const tweetData = $('#tweet-form').serialize();
   console.log("Printing: ", tweetData);
-  $.post("/tweets", tweetData);
+  $.post("/tweets", tweetData).then(() => {
+    loadTweets();
+  });
 };
 
 $(document).ready(function() {
+  loadTweets();
   $("#tweet-form").on("submit", (event) => {
     event.preventDefault();
-    alert("We submitted the form");
+    
+    if ($('#tweet-text').val().length > 140) {
+      return alert('Exceeded length limit!')
+    }
+
+    if ($('#tweet-text').val() === '' || $('#tweet-text').val() === null) {
+      return alert('Cannot tweet emptiness!')
+    }
+
+    
     postTweetData();
   });
 
-  const loadTweets = () => {
-    $.ajax({
-      url: '/tweets',
-      type: 'GET',
-      datatype: 'json',
-      success: (result) => {
-        renderTweets(result);
-      },
-      error: (error) => {
-        console.error('An error occured, ', error);
-      }
-    });
-  };
 
-  loadTweets();
+  
 });
