@@ -41,7 +41,7 @@ article.tweet footer {
   box-shadow: 10px 5px rgba(172, 166, 166, 0.527);
 }
 
-.fa-solid:hover {
+article.tweet .fa-solid:hover {
   color: rgba(255, 208, 0, 0.719)
 
 }
