@@ -70,16 +70,19 @@ $(document).ready(function() {
   loadTweets();
   $("#tweet-form").on("submit", (event) => {
     event.preventDefault();
+
+    $(".validation").slideUp()
     
     if ($('#tweet-text').val().length > 140) {
-      return alert('Exceeded length limit!')
+      $(".validation").html('Exceeded length limit!');
+      return $(".validation").slideDown();
     }
-
-    if ($('#tweet-text').val() === '' || $('#tweet-text').val() === null) {
-      return alert('Cannot tweet emptiness!')
-    }
-
     
+    if ($('#tweet-text').val() === '' || $('#tweet-text').val() === null) {
+      $(".validation").html('Cannot tweet emptiness!');
+      return $(".validation").slideDown();
+    }
+
     postTweetData();
   });
 
