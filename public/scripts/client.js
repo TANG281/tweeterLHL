@@ -38,21 +38,6 @@ const renderTweets = (data) => {
   });
 };
 
-// const getTweetData = () => {
-//   $.ajax({
-//     url: '/tweets',
-//     type: 'GET',
-//     dataType: 'json',
-//     success: (result) => {
-//       console.log(result);
-//       renderTweets(result);
-//     },
-//     error: (error) => {
-//       console.error('An error occured, ', error);
-//     }
-//   });
-// };
-
 const postTweetData = () => {
   const tweetData = $('#tweet-form').serialize();
   console.log("Printing: ", tweetData);
