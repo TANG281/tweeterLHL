@@ -19,7 +19,7 @@ This repository is the starter code for the project: Students will fork and clon
 - chance
 - md5
 
-## Dependencies
+## Screenshots
 
 ![Tweet box with counter](tweetbox.png)
 ![Home page](homepage.png)
