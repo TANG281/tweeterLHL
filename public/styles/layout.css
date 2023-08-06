@@ -28,8 +28,6 @@ body {
   font-family:"Source Sans 3", sans-serif;
   display: flex;
   justify-content: space-evenly;
-
-  /* padding-bottom: 2%; */
 }
 
 main {
