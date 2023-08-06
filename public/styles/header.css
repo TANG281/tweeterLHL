@@ -3,16 +3,20 @@ body>header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 160px;
+  width: 25%;
+  height: 25%;
   background-color: chocolate;
   background-image: url("https://www.transparenttextures.com/patterns/brick-wall.png");
-  
+
 }
 
 #avatar {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 400px;
+  height: 50%;
   width: 100%;
-  padding-top: 120px;
+  padding-top: 10%;
 }
+
