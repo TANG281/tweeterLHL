@@ -10,6 +10,7 @@ const escape = function (str) {
   return div.innerHTML;
 };
 
+/* create new tweet content */
 const createTweetElement = (data) => {
   let $tweet = `
   <article class="tweet">
@@ -35,6 +36,7 @@ const createTweetElement = (data) => {
   return $tweet;
 };
 
+/* render tweet contents from database */
 const renderTweets = (data) => {
   $("#tweets-container").empty();
   data.forEach((tweetData) => {
@@ -44,6 +46,7 @@ const renderTweets = (data) => {
   });
 };
 
+/* load all tweets from the database using renderTweets function */
 const loadTweets = () => {
   $.ajax({
     url: '/tweets',
@@ -58,6 +61,7 @@ const loadTweets = () => {
   });
 };
 
+/* create new tweet content */
 const postTweetData = () => {
   const tweetData = $('#tweet-form').serialize();
   console.log("Printing: ", tweetData);
@@ -66,19 +70,19 @@ const postTweetData = () => {
   });
 };
 
+/* action after loading the page */
 $(document).ready(function() {
   loadTweets();
   $("#tweet-form").on("submit", (event) => {
     event.preventDefault();
 
+    /**Validate error */
     $(".validation").slideUp()
-    
     if ($('#tweet-text').val().length > 140) {
       $(".validation").html('Exceeded length limit!');
       return $(".validation").slideDown();
     }
-    
-    if ($('#tweet-text').val() === '' || $('#tweet-text').val() === null) {
+    if ($('#tweet-text').val().trim() === '' || $('#tweet-text').val().trim() === null) {
       $(".validation").html('Cannot tweet emptiness!');
       return $(".validation").slideDown();
     }
