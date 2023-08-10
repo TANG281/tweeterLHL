@@ -14,8 +14,7 @@
   }
 
   nav{
-    align-self: flex-start;
-    position: unset;
+    position: unset;    
   }
 }
 
