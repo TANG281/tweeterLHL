@@ -67,6 +67,8 @@ const postTweetData = () => {
   console.log("Printing: ", tweetData);
   $.post("/tweets", tweetData).then(() => {
     loadTweets();
+    /* Clear tweet data after posting a tweet */
+    $('#tweet-text').val('');
   });
 };
 
